@@ -3,6 +3,7 @@ header{
     position:fixed;
     width: 100%;
     top: 0;
+    padding: 10px 0px 10px 0px;
 }
 .contenedor{
     display: flex;
@@ -26,7 +27,7 @@ header{
 .relative{
     position: relative;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 28px;
     line-height: 2rem;
 }
 .LOGO span{
@@ -57,7 +58,7 @@ header{
     gap: 0.25rem;
     align-items: center;
     border-radius: 0.5rem;
-    font-size: 0.75rem;
+    font-size: 13px;
     line-height: 1.25rem;
     text-decoration: none;
     font-weight: 700;
@@ -80,7 +81,7 @@ header{
 	border-radius: 3px;
 	border: 0;
 	font-weight: bold;
-	background-color:  #ffff;
+	background-color:  #ff9d00;
 	color: #33383b;
     cursor: pointer; 
 }
@@ -89,9 +90,62 @@ header{
     opacity: 0.5;
 }
 .boton-login:hover {
- background-color: #ff9d00; 
+    opacity: 0.5; 
 }
 
 .container-nav a:hover   {
     background-color:#ff9d00;/* #ff7700;*/
+}
+
+
+.usuario-autenticado {
+    position: relative;
+    display: inline-block;
+}
+
+.usuario-autenticado span {
+    cursor: pointer;
+    padding: 8px 10px 8px 10px;
+    background-color: #ff9d00;
+    color: #fff;
+    border-radius: 5px;
+    font-size: small;
+}
+
+.usuario-autenticado:hover .menu-desplegable,
+.usuario-autenticado.active .menu-desplegable {
+    display: block;
+} 
+
+.menu-desplegable {
+    display: none;
+    position: absolute;
+    top: 130%;
+    right:0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.menu-desplegable ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 6px 12px 6px 12px ;
+}
+
+.menu-desplegable li {
+    text-align: center;
+    width: 20vh;
+}
+
+.menu-desplegable a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+
+}
+
+.menu-desplegable a:hover {
+    background-color: #cbc9c9;
 }

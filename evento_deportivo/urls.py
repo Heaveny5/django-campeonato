@@ -24,7 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home , name ='home'),
     path("",include('campeonato.urls')) ,
-    path("equipos/",include('equipos.urls'))
+    path("equipos/",include('equipos.urls')),
+    path('logs/',include('usuario_login.urls'))
 ]
 #     path("Logocd/", include('generarQR.urls')),
 #     path("Logocd/",include('tienda.urls')),

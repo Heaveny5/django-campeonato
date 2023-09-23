@@ -3,6 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <header>
@@ -18,7 +19,23 @@
                 <a href="">fixture</a>
             </nav>  
             <div class="Login">
-                <button class="boton-login">Login</button>
+                {% if user.is_authenticated %}
+                    <div class="usuario-autenticado">
+
+                        <span>
+                            <i class="fas fa-user"></i>
+                            {{ user.username }}
+                        </span>
+                        <div class="menu-desplegable">
+                            <ul>
+                                <li><a href="{% url 'home' %}">Perfil</a></li>
+                                <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>    
+                            </ul>
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="{% url 'login' %}" class="boton-login">Login</a>
+                {% endif %}
             </div>
         </div>
     </div>
