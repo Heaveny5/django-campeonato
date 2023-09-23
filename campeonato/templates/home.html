@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{%extends "index.html"%}
+{% load static %}
+{%block head%}
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/campeonato.css' %}">
+{%endblock%}
+{%block header%}{%include "header.html" %}{%endblock%}
+{%block content%}
+<section>
+    <div class="titulo-campeonato">
+        <h2>Campeonatos</h2>
+    </div>
+    <div class="container-campeonatos">
+        {% if campeonatos %}
+            {% for campeonato in campeonatos %}
+                <div class="cards-campeonato">
+                    <div class="title-card">
+                        <h3><a href="{%url 'campeonato-id' campeonato.id%}">{{campeonato.nombre}}</a></h3>
+                    </div>
+                    <div>
+                        <div class="li-card">
+                            <h4> {{campeonato.lugar}}</h4>
+                            <h5>📆 {{campeonato.fecha_inicio}} - {{campeonato.fecha_inicio}}</h5>
+                        </div>
+                        <div class="p-card">
+                            <h5>Dato Importante(bases) :</h5>
+                            <p>{{campeonato.restriccion}}</p> 
+                            <h5>Organizadores :</h5>
+                            {% for dirigente in dirigentes%}
+                                {% if campeonato in dirigente.campeonato_asociado.all %}
+                                    <li>{{dirigente.nombre}}</li> 
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        {% else %}
+        {% endif %}
+    </div>
+    <div class="btn-mas">
+        <a href="{%url 'campeonatos'%}">ver más</a>
+    </div>
+</section>
+<section id="seccion-noticias">
+    <div class="titulo-campeonato"> <h2>Noticias y actualizaciones</h2></div>
+</section>
+<section id="seccion-nosotros">
+    <div class="titulo-campeonato"> <h2>Nosotros</h2></div>
+</section>
+{%endblock%}
+{%block footer%}{%include "footer.html" %} {%endblock%}
+

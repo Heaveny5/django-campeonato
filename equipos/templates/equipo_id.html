@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+
+{% extends "index.html" %}
+{% load static %}
+{%block head%}
+    <title>Equipo-{{equipo.Nombre}}</title>
+    <link rel="stylesheet" href="{% static 'css/miequipo.css' %}">
+{%endblock%}
+{%block header%}
+    {%include "header.html" %}
+{%endblock%}
+{{% block content %}
+<section>
+    <div class="sec-titulo">
+        <h2>{{equipo.Nombre}}</h2>
+    </div>
+    <div class="container-info-jugador">
+        {% if jugadores %}
+            {% for jugador in jugadores %}
+                <div class="container-datos-jugador">
+                    <div class="nombre">
+                        <h3>{{jugador.Nombre}}</h3>
+                    </div>
+                    <div class="img-jugador">
+                        <img src="{{equipo.logo.url}}" alt="logo">
+                    </div>
+                    <div class="barra-fecha">
+                        <div class="estado-barra {% if jugador.estado %}activo{% else %}inactivo{% endif %}">
+                            <h5>{{ jugador.estado|yesno:"Activo,Inactivo" }}</h5>
+                        </div>
+                        {% for key,value in edad_jugadores.items %}
+                            {% if jugador.id == key%}
+                                <h5>🗓️{{jugador.fecha_nacimiento}}({{value}})</h5>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}       
+        {% else %}
+                <h4>Sin Participantes</h4>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock%}}
+{%block footer%}
+    {%include "footer.html"%}
+{%endblock%}

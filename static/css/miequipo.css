@@ -1,0 +1,77 @@
+section{
+    padding:3rem;
+}
+.sec-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+.cards-jugadores{
+    display: flex;
+    
+}
+
+.estado-barra {
+    border: 1px solid #ccc; /* Define un borde */
+    max-width :4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.estado-barra h5{
+    padding: 4px 10px;
+}
+
+.activo {
+    background-color: green; /* Color de fondo verde para estado activo */
+    color: white; /* Color de texto blanco */
+}
+
+.inactivo {
+    background-color: red; /* Color de fondo rojo para estado inactivo */
+    color: white; /* Color de texto blanco */
+}
+
+.nombre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+.container-info-jugador{
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 2rem 2rem 2rem;
+    gap: 20px;
+    flex-wrap: wrap;
+    border: 4px solid #ff9d00;
+
+}
+.barra-fecha{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 5px 0px 0px 0px;
+
+}
+
+.container-datos-jugador{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px ; 
+    border: 2px solid #ff9d00;
+    max-width: 280px;
+    min-width: 270px;
+    gap: 5px;
+}
+.img-jugador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0px;
+}

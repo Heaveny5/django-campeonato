@@ -1,0 +1,73 @@
+.footer-distributed{
+    background: #292929;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+
+
+}
+.container_footer{
+    display: flex;       
+    justify-content: space-around;
+}
+
+.Recomendaciones div{
+    padding-bottom: 5px;
+    border-bottom: 2px solid ;
+     margin-bottom: 8px;
+}
+
+.Redes div{
+    padding-bottom: 5px;
+    border-bottom: 2px solid;
+     margin-bottom: 8px;
+}
+
+.Recomendaciones span{
+    padding-right: 20px;
+}
+
+.Redes span{
+    padding-right: 20px;
+}
+.footer-logo{
+    color:  #ffffff;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 20px 10px 15px 50px;
+}
+
+.footer-distributed h3 span{
+    color:  #ff9d00;
+    padding-left: 5px;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+    color: #818181;
+    margin: 0 0 10px;
+    padding: 0;
+    gap: 15px;
+    display: grid;
+    list-style: none;
+    cursor: pointer;
+}
+
+.footer-distributed .footer-links li:hover{
+    color:#fff;
+}
+
+.footer-distributed .footer-links a{
+    display:inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color:  inherit;
+}
+
+.footer-company-name{
+    color:  #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

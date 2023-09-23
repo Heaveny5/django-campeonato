@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    
+{%extends "index.html"%}
+{% load static %}
+{%block head%}
+    <title>campeonato-equipo</title>
+    <link rel="stylesheet" href="{% static 'css/campeonato.css' %}">
+{%endblock%}
+{%block header%}
+    {%include "header.html" %}
+{%endblock%}
+{%block content%}
+    
+    <section id="campeonato-campeon">
+        <div class="cards-campeonato-id">
+            <div class="title-card">
+                <h2><a href="{%url 'campeonatos'%}">{{campeonato.nombre}}</a></h2>
+            </div>
+            <div>
+                <div class="li-card">
+                    <h4> {{campeonato.lugar}}</h4>
+                    <h5>📆 {{campeonato.fecha_inicio}} - {{campeonato.fecha_inicio}}</h5>
+                </div>
+                <div class="p-card">
+                    <h5>Dato Importante(bases) :</h5>
+                    <p>{{campeonato.restriccion}}</p> 
+                    <h5>Organizadores :</h5>
+                    {% if dirigentes %}
+                        {% for dirigente in dirigentes%}
+                            <li>{{dirigente.nombre}}</li> 
+                        {% endfor %}
+                    {% else %}
+                        <li>Dirigentes no registrados</li>  
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+        <div class="campeonato-equipo-ganador">
+            <div>
+                <h3>Campeón Del Torneo 🏆</h3>
+            </div>
+            <div >
+                <h4>{{campeon.Nombre}}</h4>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="sec-titulo">
+            <h2>Equipos Participantes</h2>
+        </div>
+        <div class="camp-id-equipos">
+            {% if campeonato and equipos %}
+                {% for equipo in equipos %}
+                    <div class="container-info-equipo">
+                        <div class="nombre-equipo">
+                            <a href="{%url 'equipo-id' equipo.id%}">{{equipo.Nombre}}</a>
+                        </div>
+                        
+                        <div class="img-equipo">
+                            <img src="{{equipo.logo.url}}" alt="logo">
+                        </div>
+                        <div class="nombre-dele">
+                            <h5>Delegado: {{equipo.delegado}}</h5>
+                        </div>
+                    </div>
+                {% endfor %}       
+            {% else %}
+                    <h4>Sin Participantes</h4>
+            {% endif %}
+        </div>
+    </section>
+
+
+{%endblock%}
+{%block footer%}
+    {%include "footer.html"%}
+{%endblock%}

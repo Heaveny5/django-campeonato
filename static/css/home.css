@@ -1,0 +1,78 @@
+section {
+    background-color: #232323b2;
+    color: #cbd3f6;
+    padding: 50px;
+    height: 90vh;
+
+}
+section h2{
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+
+.titulo-campeonato{
+    margin-bottom: 50px;
+    color: #ff9d00;
+    margin-top: 2rem;
+}
+
+
+
+.container-campeonatos{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cards-campeonato{
+    border-right: 2px solid #ff9d00;
+    padding:0px 2rem 20px 20px;
+    width: 50%;
+
+
+}
+.title-card{
+    padding-bottom: 10px;
+
+}
+.title-card a{
+    text-decoration: none;
+    color: #cbd3f6;
+}
+.title-card :hover{
+    opacity: 0.5;
+}
+
+.li-card h5{
+    padding: 5px 0px 10px 10px;
+}
+.li-card h4{
+    padding: 10px 0px 10px 0px;
+}
+
+.p-card{
+    padding-top: 15px;
+}
+.p-card h5{
+    padding: 10px 0px 5px 0px;
+    color: #f2f4fa;
+    
+}
+.btn-mas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.btn-mas a{
+    font-size: 13px;
+    text-decoration: none;
+    color: #cbd3f6;
+    padding: 3px 10px;
+    border-radius: 5px;
+    background-color: #ff9d00;
+}
+.btn-mas :hover{
+    opacity: 0.5;
+}

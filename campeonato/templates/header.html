@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+</head>
+
+<header>
+    <div class="contenedor">
+        <a class="LOGO" href="{%url 'home'%}">
+            <h1 class="relative">Eventos</h1>
+            <span>RCC</span>
+        </a>
+        <div class="container-nav">
+            <nav >
+                <a href="{% url 'home' %}">Home</a>
+                <a href="">Tabla Posiciones</a> 
+                <a href="">fixture</a>
+            </nav>  
+            <div class="Login">
+                <button class="boton-login">Login</button>
+            </div>
+        </div>
+    </div>
+</header>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body {
+    margin: 3rem  0 0 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+</style>
+<head>
+    {% block head %}{% endblock head %}
+    
+</head>
+<body>
+    {%block header%} {%endblock%}
+    {%block content%}  
+    {%endblock%}
+    {%block footer%} {%endblock%}
+</body>
+

@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<!-- dividir todos los contenedores de los campeonato en 2 para mostrar a lado izquierdo toda la info del campe y al lado derecho 
+el goleador,mejor portero(esto queda por equipo quien recibio menos goles) y ganador si es posible con una pequeña imagen -->
+
+{%extends "index.html"%}
+{% load static %}
+{%block head%}
+    <title>Campeonatos</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/campeonatos.css' %}">
+{%endblock%}
+{%block header%}{%include "header.html" %}{%endblock%}
+{%block content%}
+<section>
+    {%for campeonato in campeonatos %}
+        <div class="cards-campeonato">
+            <div class="title-card">
+                <h3><a href="{%url 'campeonato-id' campeonato.id%}">{{campeonato.nombre}}</a></h3>
+            </div>
+            <div>
+                <div class="li-card">
+                    <h4> {{campeonato.lugar}}</h4>
+                    <h5>📆 {{campeonato.fecha_inicio}} - {{campeonato.fecha_inicio}}</h5>
+                </div>
+                <div class="p-card">
+                    <h5>Dato Importante(bases) :</h5>
+                    <p>{{campeonato.restriccion}}</p> 
+                    <h5>Organizadores :</h5>
+                    {% for dirigente in dirigentes%}
+                        {% if campeonato in dirigente.campeonato_asociado.all%}
+                            <li>{{dirigente.nombre}}</li> 
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {%endfor%}
+</section>
+{%endblock%}
+{%block footer%}
+{%include "footer.html"%}
+{%endblock%}
