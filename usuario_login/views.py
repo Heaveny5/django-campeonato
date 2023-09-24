@@ -1,6 +1,10 @@
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import Group,User
+from django.contrib.auth.decorators import login_required
+from equipos.models import *
+
 # Create your views here.
 
 
@@ -31,3 +35,56 @@ def logout_usuario(request):
     logout(request)
     return redirect('home')
 
+
+@login_required(login_url='home')
+def panel_usuario(request,user_id):
+
+    if request.user.is_superuser:
+        return redirect("/admin")
+
+    try:
+
+        usuario=User.objects.get(pk=user_id)
+        #print(usuario)
+        is_delegado=usuario.groups.filter(name="Delegados").exists();
+        
+        equipo=Equipo.objects.get(delegado=user_id)
+    
+        #print(equipo)
+        jugadores=Jugadores.objects.filter(equipo__id=equipo.id)
+        print(equipo.logo)
+        if is_delegado:
+
+
+            print(is_delegado)
+    except Exception:
+        equipo=None
+        jugadores=None
+ 
+
+
+    return render(request,'panel_jugadores.html',{"equipo":equipo,"jugadores":jugadores})
+
+
+
+def panel_usuario_jugadores(request,user_id):
+    if not request.user.is_authenticated:
+        return redirect("home")
+
+
+    usuario=User.objects.get(pk=user_id)
+    #print(usuario)
+    is_delegado=usuario.groups.filter(name="Delegados").exists();
+    equipo=Equipo.objects.get(delegado=user_id)
+    #print(equipo)
+    jugadores=Jugadores.objects.filter(equipo__id=equipo.id)
+    print(equipo.logo)
+    if is_delegado:
+
+
+        print(is_delegado)
+    
+ 
+
+
+    return render(request,'panel_jugadores.html',{"equipo":equipo,"jugadores":jugadores})

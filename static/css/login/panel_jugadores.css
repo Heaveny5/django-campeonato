@@ -1,0 +1,27 @@
+.info-jugador{
+    color: #fff;
+}
+
+main {
+    display: flex;
+    padding: 2rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+}
+  
+  main h1 {
+    margin-bottom: 1rem;
+  }
+  
+  main .copyright {
+    margin-top: auto;
+    font-size: 0.9rem;
+  }
+  
+  main .copyright span {
+    color: var(--main-color);
+    font-weight: 500;
+    cursor: pointer;
+  }

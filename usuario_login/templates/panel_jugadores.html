@@ -1,0 +1,22 @@
+
+
+{% extends "panel_user.html" %}
+{% load static %}
+{% block main %}
+    <main>
+        {% if jugadores %}
+            {% for jugador in jugadores %}
+                <div class="info-jugador">
+                    <div>
+                        <h4>{{jugador.Nombre}}</h4>
+                    <div>
+                </div>
+            {% endfor %}
+            
+        {% else %}
+                <div>
+                    <h4>No ha registrado jugadores</h4>
+                </div>
+        {% endif %}
+    </main>
+{% endblock main %}
