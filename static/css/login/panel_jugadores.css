@@ -1,27 +1,79 @@
-.info-jugador{
+.card-jugador{
     color: #fff;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-direction: column;
+    padding: 2rem;
+    border:  4px solid #ff9d00;
 }
 
 main {
     display: flex;
-    padding: 2rem;
+    padding: 3rem;
     color: #fff;
     display: flex;
     flex-direction: column;
-    width: 100vh;
+    width: 100%;
 }
   
-  main h1 {
-    margin-bottom: 1rem;
-  }
-  
-  main .copyright {
-    margin-top: auto;
-    font-size: 0.9rem;
-  }
-  
-  main .copyright span {
-    color: var(--main-color);
-    font-weight: 500;
-    cursor: pointer;
-  }
+
+.titulo-equipo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3rem 3rem 3rem;
+
+}
+
+.info-jugador{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #ff9d00;
+  padding-bottom: 2rem;
+}
+.info-jugador h4{
+  padding: 3px 10px;
+}
+.activo {
+  background-color: rgb(3, 165, 3); /* Color de fondo verde para estado activo */
+  color: white; /* Color de texto blanco */
+}
+
+.inactivo {
+  background-color: red; /* Color de fondo rojo para estado inactivo */
+  color: white; /* Color de texto blanco */
+}
+
+.estado-barra {
+  border: 1px solid #ccc; /* Define un borde */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.estado-barra h4{
+  padding: 3px 10px;
+}
+
+.sub-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 7rem;
+}
+.editar-jugador a{
+  background-color: #ff9d00;
+  border-radius: 5px;
+  padding: 5px 10px ;
+}
+
+.editar-jugador a{
+  color: #fff;
+}
+
+.editar-jugador a:hover{
+  opacity: 0.5;
+}

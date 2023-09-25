@@ -4,15 +4,34 @@
 {% load static %}
 {% block main %}
     <main>
+        <div class="titulo-equipo">
+            <h2>Mi Equipo : {{equipo.Nombre}}</h2>
+        </div>
         {% if jugadores %}
-            {% for jugador in jugadores %}
-                <div class="info-jugador">
-                    <div>
+        <div class="card-jugador">
+                {% for jugador in jugadores %}
+                <div class="info-jugador" >
+                    <div class="sub-info">
                         <h4>{{jugador.Nombre}}</h4>
-                    <div>
+                    </div>
+                    <div class="sub-info">
+                        <h4>{{jugador.apellidos}}</h4>
+                    </div>
+                    <div class="sub-info">
+                        <h4>🗓️{{jugador.fecha_nacimiento}}</h4>
+                    </div>            
+                    <div class="estado-barra {% if jugador.estado %}activo{% else %}inactivo{% endif %}">
+                        <h4>{{ jugador.estado|yesno:"Activo,Inactivo" }}</h4>
+                    </div>
+                    <div class="sub-info">
+                        <h4>Goles({{jugador.goles_max}})</h4>
+                    </div>
+                    <div class="editar-jugador" >
+                        <h4><a href="home">Editar Jugador</a></h4>
+                    </div>
                 </div>
-            {% endfor %}
-            
+                {% endfor %}
+        </div>
         {% else %}
                 <div>
                     <h4>No ha registrado jugadores</h4>

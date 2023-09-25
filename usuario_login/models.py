@@ -1,8 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser 
+from campeonato.models import *
+from equipos.models import *
+from django.db.models import Model
 # Create your models here.
 
 
 
-# class Usuario(AbstractUser):
-#     avatar=models.ImageField(upload_to="avatar_user" , default='media/default.png',null=True,blank=True)
+class MensajeriaDirigente(Model):
+    emisor=models.ForeignKey(Equipo, on_delete=models.CASCADE)
+    receptor=models.ForeignKey(Dirigentes, on_delete=models.CASCADE)
+    asunto=models.CharField(max_length=150) 
+    descripcion=models.CharField(max_length=300)

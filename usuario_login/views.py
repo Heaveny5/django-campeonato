@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group,User
 from django.contrib.auth.decorators import login_required
 from equipos.models import *
-
+from campeonato.models import*
+from usuario_login.models import MensajeriaDirigente
 # Create your views here.
 
 
@@ -54,9 +55,7 @@ def panel_usuario(request,user_id):
         jugadores=Jugadores.objects.filter(equipo__id=equipo.id)
         print(equipo.logo)
         if is_delegado:
-
-
-            print(is_delegado)
+            pass
     except Exception:
         equipo=None
         jugadores=None
@@ -67,24 +66,9 @@ def panel_usuario(request,user_id):
 
 
 
-def panel_usuario_jugadores(request,user_id):
-    if not request.user.is_authenticated:
-        return redirect("home")
 
-
-    usuario=User.objects.get(pk=user_id)
-    #print(usuario)
-    is_delegado=usuario.groups.filter(name="Delegados").exists();
-    equipo=Equipo.objects.get(delegado=user_id)
-    #print(equipo)
-    jugadores=Jugadores.objects.filter(equipo__id=equipo.id)
-    print(equipo.logo)
-    if is_delegado:
-
-
-        print(is_delegado)
+def form_reclamo(request, user_id):
     
- 
-
-
-    return render(request,'panel_jugadores.html',{"equipo":equipo,"jugadores":jugadores})
+    id_equi=Equipo.objects.get(delegado=user_id)
+    campeonato=Campeonato.objects.get(id=id_equi.campeonato.id)
+    dirigentes=Dirigentes.objects.filter(campeonato_asociado=campeonato.id)

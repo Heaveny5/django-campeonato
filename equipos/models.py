@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import Model
 from django.contrib.auth.models import User
-from campeonato.models import Campeonato
+from campeonato.models import Campeonato,Dirigentes
 # Create your models here.
 
 class Equipo(Model):
@@ -39,6 +39,7 @@ class Grupo(Model):
 
     def __str__(self) -> str:
         return "Grupo: %s"%(self.nombre)
+
 
 
 

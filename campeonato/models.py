@@ -32,3 +32,5 @@ class Dirigentes(Model):
         return "Apellido : %s - Nombre : %s - Cargo : %s "%(self.apellido,self.nombre,self.cargo)
     
 
+
+
