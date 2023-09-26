@@ -368,3 +368,8 @@ body.shrink .tooltip {
 .log-nombre img{
     border-radius: 15px;
 }
+
+.hide a{
+  text-decoration: none;
+  color: #cfcde7;
+}

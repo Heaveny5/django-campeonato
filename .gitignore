@@ -12,3 +12,6 @@ env
 /share
 /pyvenv.cfg
 /pip-selfcheck.json
+media
+/equipos/
+/logo_equipos

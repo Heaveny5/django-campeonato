@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'css/login/panel_jugadores.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login/reclamo.css' %}">
     <title>Panel de Administración</title>
 </head>
 
@@ -18,8 +19,8 @@
           <i class='bx bx-chevron-left'></i>
         </span>
             <div class=log-nombre>
-                <img src="{{equipo.logo.url}}" class="logo" alt="">
-                <h3 class="hide">{{user.username}}</h3>
+                <img src="{% block logo_src %}{% endblock %}" class="logo" alt="">
+                <h3  class="hide"><a href="{% url 'panel_user' user.id %} ">{{user.username}}</a></h3>
             </div>    
       </div>
       <div class="search">
@@ -65,7 +66,7 @@
             </a>
           </li>
           <li class="tooltip-element" data-tooltip="4">
-            <a href="#" data-active="4">
+            <a href="{% url 'reclamo' user.id %}" data-active="4">
               <div class="icon">
                 <i class='bx bx-help-circle'></i>
                 <i class='bx bxs-help-circle'></i>

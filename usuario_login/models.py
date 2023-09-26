@@ -12,3 +12,4 @@ class MensajeriaDirigente(Model):
     receptor=models.ForeignKey(Dirigentes, on_delete=models.CASCADE)
     asunto=models.CharField(max_length=150) 
     descripcion=models.CharField(max_length=300)
+    archivo=models.FileField(upload_to='uploads/Documentos/%Y/%m/%d/',blank=True)

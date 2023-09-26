@@ -1,0 +1,57 @@
+/* Estilo básico para el formulario */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #000000;
+    font-weight: 600;
+}
+
+select,
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccccccf3;
+    border-radius: 3px;
+    resize: none;
+}
+
+input[type="file"] {
+    margin-bottom: 20px;
+    color: #ff9d00;
+}
+
+button {
+    background-color: #ff9d00;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: #222;
+  
+}

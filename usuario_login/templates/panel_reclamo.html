@@ -1,5 +1,33 @@
 {% extends "panel_user.html" %}
 {% load static %}
+
+{% block logo_src %}{{equipo.logo.url}}{% endblock logo_src %}
 {% block main %}
 
-{% endblock %}
+    <main>
+        <h1>Formulario de Reclamo</h1>
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="receptor">Receptor:</label>
+            <select id="receptor" name="receptor">
+                {% for dirigente in dirigentes %}
+                    <option value="{{dirigente.id}}">{{dirigente.nombre}} - {{dirigente.cargo}}</option>
+                {% endfor %}
+                
+            </select>
+
+            <label for="asunto">Asunto:</label>
+            <input type="text" id="asunto" name="asunto" required>
+
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="10" cols="50" required></textarea>
+
+            <label for="archivo">Adjuntar Archivo:</label>
+            <input type="file" id="archivo" name="archivo">
+
+            <button>Enviar</button>
+        </form>
+    </main>
+
+{% endblock main %}

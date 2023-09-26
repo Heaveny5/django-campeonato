@@ -72,3 +72,37 @@ def form_reclamo(request, user_id):
     id_equi=Equipo.objects.get(delegado=user_id)
     campeonato=Campeonato.objects.get(id=id_equi.campeonato.id)
     dirigentes=Dirigentes.objects.filter(campeonato_asociado=campeonato.id)
+
+    #print(id_equi)
+    
+    if request.method=="POST":
+        receptor_id=request.POST.get('receptor')
+        asunto=request.POST['asunto']
+        descripcion=request.POST['descripcion']
+        archivo=request.FILES.get('archivo')
+
+
+        receptor=Dirigentes.objects.get(id=receptor_id)
+        emisor=Equipo.objects.get(delegado=user_id)
+
+        print(receptor)
+        print(emisor)
+        print(asunto)
+        print(descripcion)
+        print(archivo)
+        if asunto and descripcion and archivo:
+
+            mensajeria=MensajeriaDirigente(
+                emisor=emisor,
+                receptor=receptor,
+                asunto=asunto,
+                descripcion=descripcion,
+                archivo=archivo
+            )
+
+            mensajeria.save()
+
+            return redirect('reclamo',user_id)
+
+
+    return render(request,'panel_reclamo.html',{"equipo":id_equi ,"dirigentes":dirigentes})
