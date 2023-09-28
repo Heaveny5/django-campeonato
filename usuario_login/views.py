@@ -23,7 +23,7 @@ def login_usuario(request):
         
         if user is not None:
             # Si el usuario es válido, inicia sesión.
-            login(request, user)
+            login(request, user) 
             # Después de iniciar sesión, redirige a la página deseada.
             return redirect('home')
     

@@ -5,7 +5,7 @@ from encuentros_equipos.models import *
 
 class EncuentroAdmin(admin.ModelAdmin):
     list_display=("fecha","equipo_local","equipo_visitante","campeonato","fase")
-    list_filter=("fecha","campeonato")
+    list_filter=("fecha","campeonato") 
     
 
 class SancionesAdmin(admin.ModelAdmin):

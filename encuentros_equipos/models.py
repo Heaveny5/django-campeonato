@@ -19,7 +19,7 @@ class Encuentro(Model):
 
 
 class Sanciones(Model):
-    fecha_inicio=models.DateField(verbose_name="Fecha Inicio")
+    fecha_inicio=models.DateField(verbose_name="Fecha Inicio") 
     fecha_fin=models.DateField(verbose_name="Fecha Fin")
     equipo=models.ForeignKey(Equipo,null=True,blank=True,on_delete=models.CASCADE)
     jugador=models.ForeignKey(Jugadores,null=True,blank=True, on_delete=models.CASCADE)

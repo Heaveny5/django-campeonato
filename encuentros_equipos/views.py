@@ -9,7 +9,7 @@ from django.db.models import Q
 
 
 @login_required(login_url='home')
-def mis_resultados(request,user_id):
+def mis_resultados(request,user_id): 
 
     try:
         equipo=Equipo.objects.get(delegado=user_id)
