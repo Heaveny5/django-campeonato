@@ -29,7 +29,7 @@ class Sanciones(Model):
         return "jugador: %s - Equipo: %s "%(self.jugador.Nombre,self.equipo.Nombre)
 
 
-class resultado(Model):
+class Resultado(Model):
     ganador=models.ForeignKey(Equipo,null=True,blank=True,on_delete=models.CASCADE,verbose_name="Ganador",related_name="Ganador")
     perdedor=models.ForeignKey(Equipo,null=True,blank=True,on_delete=models.CASCADE,verbose_name="Perdedor",related_name="Perdedor")
     empate=models.BooleanField(default=False)
@@ -37,7 +37,7 @@ class resultado(Model):
     goles_ganador=models.IntegerField(default=0)
     goles_perdedor=models.IntegerField(default=0)
     def __str__(self):
-        return "Ganador: %s - Perdedor"
+        return "Ganador: %s - Perdedor %s"%(self.ganador,self.perdedor)
     
 
 

@@ -66,7 +66,7 @@ def panel_usuario(request,user_id):
 
 
 
-
+@login_required(login_url='home')
 def form_reclamo(request, user_id):
     
     id_equi=Equipo.objects.get(delegado=user_id)

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'campeonato',
     'equipos',
     'encuentros_equipos',
-    'usuario_login'
+    'usuario_login',
 ]
 
 MIDDLEWARE = [

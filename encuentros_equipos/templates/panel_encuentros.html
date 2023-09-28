@@ -1,0 +1,34 @@
+
+
+{% extends "panel_user.html" %}
+{% block logo_src %}{{equipo.logo.url}}{% endblock logo_src %}
+{% block main %}
+
+
+    <main>
+        <div>
+            <h2>Encuentros {{equipo.Nombre}}</h2>
+        </div>
+        
+        {% for encuentro in encuentros %}
+        <div>
+            <h4>{{encuentro.fase}}({{encuentro.fecha}})</h4>
+
+            <div>
+                <h4>{{encuentro.equipo_local.Nombre}} vs {{encuentro.equipo_visitante.Nombre}}</h4>
+            </div>
+            {% for resultado in resultados %}
+                {% if resultado.encuentro.id == encuentro.id %}
+                    <div>
+                        <h4>{{resultado.ganador.Nombre}}({{resultado.goles_ganador}}) - {{resultado.perdedor.Nombre}}({{resultado.goles_perdedor}})</h4>
+                    </div>                
+                {% endif %}
+
+            {% endfor %}
+
+        </div>        
+        {% endfor %}
+    </main>
+
+
+{% endblock main %}

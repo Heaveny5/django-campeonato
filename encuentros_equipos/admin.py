@@ -21,4 +21,4 @@ class ResultadoAdmin(admin.ModelAdmin):
 
 admin.site.register(Encuentro,EncuentroAdmin)
 admin.site.register(Sanciones,SancionesAdmin)
-admin.site.register(resultado,ResultadoAdmin)
+admin.site.register(Resultado,ResultadoAdmin)
