@@ -9,9 +9,9 @@ h1 {
     padding-bottom: 20px;
 }
 
-form {
+.form-Reclamo {
     max-width: 500px;
-    margin: 20px auto;
+    margin: 0px auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
@@ -29,7 +29,7 @@ select,
 input[type="text"],
 textarea {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccccccf3;
     border-radius: 3px;

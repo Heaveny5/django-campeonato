@@ -9,6 +9,8 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'css/login/panel_jugadores.css' %}">
     <link rel="stylesheet" href="{% static 'css/login/reclamo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login/panel_resultado.css' %}">
+    <link rel="stylesheet" href="{% static 'css/encuentros_equipos/add_jugador.css' %}">
     <title>Panel de Administración</title>
 </head>
 
@@ -57,7 +59,7 @@
             </a>
           </li>
           <li class="tooltip-element" data-tooltip="3">
-            <a href="#" data-active="3">
+            <a href="{% url 'añadir_jugador' user.id %}" data-active="3">
               <div class="icon">
                 <i class='bx bx-notepad'></i>
                 <i class='bx bxs-notepad'></i>

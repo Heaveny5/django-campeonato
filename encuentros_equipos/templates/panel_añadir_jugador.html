@@ -1,0 +1,34 @@
+
+{% extends "panel_user.html" %}
+{% load static %}
+{% block logo_src %}{{equipo.logo.url}}{% endblock logo_src %}
+{% block main %}
+
+
+    <main>
+        <h1>Añadir Jugador </h1>
+        <form class="form-añadir-Jugador" action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="card-img">
+                <h4 class ="nombre-equipo-añadir">{{equipo.Nombre}}</h4>
+                <img src="{{equipo.logo.url}}" class="logo" alt="">
+            </div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+    
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+    
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+
+            <label for="imagen_dni">Imagen DNI:</label>
+            <input type="file" id="imagen_dni" name="imagen_dni" accept="image/*" >
+            <input type="submit" value="Añadir Jugador" >
+        </form>
+    </main>
+
+
+
+
+{% endblock main %}
