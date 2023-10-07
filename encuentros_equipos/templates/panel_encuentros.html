@@ -15,17 +15,12 @@
         <div class="card-pr">
             {% for encuentro in encuentros %}
             <h4>{{encuentro.fase}}({{encuentro.fecha}})</h4>
-
-            <div class="cards-pr-equipos">
-                <h4>{{encuentro.equipo_local.Nombre}} vs {{encuentro.equipo_visitante.Nombre}}</h4>
-            </div>
             {% for resultado in resultados %}
                 {% if resultado.encuentro.id == encuentro.id %}
                     <div class="inf-resultado-pr">
-                        <h4>{{resultado.ganador.Nombre}}({{resultado.goles_ganador}}) - {{resultado.perdedor.Nombre}}({{resultado.goles_perdedor}})</h4>
+                        <h4>{{resultado.ganador.Nombre}} ({{resultado.goles_ganador}}) - ({{resultado.goles_perdedor}}) {{resultado.perdedor.Nombre}}</h4>
                     </div>                
                 {% endif %}
-
             {% endfor %}
         {% endfor %}
         </div>        

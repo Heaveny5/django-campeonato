@@ -29,6 +29,7 @@ h1 {
 .nombre-equipo-añadir{
     color: #6f2f11;
     text-transform: uppercase;
+    padding-left: 10px;
 }
 label {
     display: block;
@@ -63,3 +64,29 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+
+.cont-messages {
+    position: fixed;
+    bottom: 7%;
+    right: 2%;
+    background-color: transparent;
+    z-index: 1000;
+  }
+  
+
+
+
+.success{
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Verde */
+  }
+  
+.error{
+    padding: 15px;
+    border-radius: 5px;
+    font-size: small;
+    font-weight: 500;
+    background-color: #f44336; /* Rojo */
+  }

@@ -22,7 +22,7 @@ class Jugadores(Model):
     apellidos=models.CharField(max_length=100)
     fecha_nacimiento=models.DateField()
     estado=models.BooleanField(default=True)
-    imagen_dni=models.ImageField(upload_to='equipos' , default='media/default.png')
+    imagen_dni=models.ImageField(upload_to='jugadores' , default='media/default.png')
     equipo=models.ForeignKey(Equipo,on_delete=models.CASCADE)
     goles_max=models.IntegerField(default=0)
     

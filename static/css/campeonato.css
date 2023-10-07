@@ -137,3 +137,43 @@ section{
     justify-content: center;
     align-items: center;
 }
+
+.bracket {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Estilo de cada ronda del torneo */
+.round {
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+    
+}
+
+/* Estilo de cada partido */
+.match {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ff9d00;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* Estilo de los equipos */
+.team {
+    flex: 1;
+    text-align: center;
+}
+
+/* Estilo de los puntajes */
+.score {
+    width: 30px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+}

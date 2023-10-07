@@ -28,7 +28,7 @@
                         <h4>Goles({{jugador.goles_max}})</h4>
                     </div>
                     <div class="editar-jugador" >
-                        <h4><a href="home">Editar Jugador</a></h4>
+                        <h4><a href="{% url 'actualizar_jugador' user.id jugador.id %}">Editar Jugador</a></h4>
                     </div>
                 </div>
                 {% endfor %}

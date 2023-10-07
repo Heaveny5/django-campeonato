@@ -1,0 +1,116 @@
+.contenedor-settings{
+    height: 100vh;
+}
+.titulo-settings{
+    padding: 20px 0 2rem 11px;
+    font-size: 20px;
+    font-weight: 700;
+
+}
+
+
+.contenedor-set-datos  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.span-settings{
+    color: #c3c3c3;
+    font-size: small;
+}
+
+
+.datos-usuarios{
+    display: flex;
+    justify-content: space-between;
+    width: 100vh;
+}
+
+.form-group img{
+    border-radius: 50% !important;
+    width: 10rem;
+    height: 10rem;
+    padding: 10px;
+    cursor: pointer;
+}
+.form-group{
+    padding-top: 15px;
+}
+
+
+/* Estilo para ocultar el input de tipo file */
+#imagen_equipo_settings {
+    display: none;
+
+}
+
+/* Estilo para el icono de edición (puedes reemplazarlo con un ícono de lápiz) */
+.actualizar-img label {
+    display: block;
+    font-size: 18px; 
+    cursor: pointer; 
+    bottom: 65%;
+    right: 20%;
+    position: absolute;
+    border-radius: 5px;
+    background-color: #ff9d00;
+    padding: 0 5px 0 2px;
+
+}
+
+
+.label{
+    color: white;
+    margin: 0;
+    padding-bottom: 15px;
+    font-size: 18px;
+}
+
+.span-label{
+    color: white;
+    font-size: small;
+
+}
+
+.form-group-name{
+    padding: 25px 0 0 0;
+}
+
+
+.img-container {
+    width: 150px;
+    height: 150px;
+    position: relative; 
+  }
+  
+  .img-container p {
+ 
+    color: #ff9d00;
+    text-align: center;
+    line-height: 160px; /* igual height de la imagen */
+    border-radius: 55%;
+    background: #808080;
+    transition: opacity .4s linear;
+    cursor: pointer;  
+    position: absolute;
+    top: 5%;
+    right: 0;
+    bottom: 0;
+    left: 6%;
+    opacity: 0;
+  }
+  
+  .img-container:hover p {
+    opacity: .75;  
+  }
+
+
+.button-settings{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    margin-top: 15px;
+}

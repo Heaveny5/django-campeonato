@@ -1,0 +1,75 @@
+
+{% extends "panel_user.html" %}
+{% load static %}
+{% block logo_src %}{{equipo.logo.url}}{% endblock logo_src %}
+{% block main %}
+
+
+    <main>
+        {% if messages %}
+        <div class="cont-messages">
+            <ul class="messages">
+                {% for message in messages %}
+                <li class="{% if message.tags == 'success' %}success{% elif message.tags == 'error' %}error{% endif %}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <div class="contenedor-settings">
+            <div class="titulo-settings">
+                <h2>Editar Perfil <span class="span-settings">({{usuario.first_name}})</span></h2>
+                
+            </div>
+            <div class="contenedor-set-datos">
+                    <form  method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="datos-usuarios">
+                            <div class="datos-usuario-form">
+                                <div class="form-group">
+                                    <label class="label" for="nombre_usuario">Nombre:</label>
+                                    <input type="text" id="nombre_usuario" name="nombre_usuario" placeholder="{{ usuario.first_name }}"> 
+                                </div>
+                                <div class="form-group">
+                                    <label for="correo_usuario" class="label">Correo Electrónico:</label>
+                                    <input type="text"  id="correo_usuario" name="correo_usuario" placeholder="{{ usuario.email }}"> 
+                                </div>
+                                <div class="form-group">
+                                    <label for="username" class="label">Nombre usuario:</label>
+                                    <input type="text"  id="username" name="username" placeholder="{{ usuario.username }}" autocomplete="off"> 
+                                </div>
+                            </div>
+                            <div class="datos-equipo">
+                                <div class="form-group">
+                                    <label class="label" for="imagen_equipo_settings">Foto de Equipo:</label>
+                                    <label for="imagen_equipo_settings">
+                                        <div class="img-container">
+                                            <img aria-placeholder="editar" src="{{equipo.logo.url}}" class="imagen_equipo">
+                                            <p>Editar</p>
+                                        </div>
+                                    </label>
+                                    <input type="file" id="imagen_equipo_settings" name="imagen_equipo_settings" accept="image/*">
+                                </div>                              
+                                <div class="form-group-name">
+                                    <label   class="label" for="nombre_equipo">Nombre Equipo</label>
+                                    <input placeholder="{{equipo.Nombre}}" type="text" id="nombre_equipo" name="nombre_equipo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-settings">
+                            <button type="submit" class="btn">Guardar Cambios</button>
+                        </div>
+                        
+                    </form>
+            </div>
+        </div>
+
+    </main>
+
+{% endblock main %}
+
+
+
+
+
+
+<!-- sigue avanzando -->

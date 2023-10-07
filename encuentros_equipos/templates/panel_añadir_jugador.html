@@ -7,7 +7,16 @@
 
     <main>
         <h1>Añadir Jugador </h1>
-        <form class="form-añadir-Jugador" action="#" method="post" enctype="multipart/form-data">
+        {% if messages %}
+        <div class="cont-messages">
+            <ul class="messages">
+                {% for message in messages %}
+                <li class="{% if message.tags == 'success' %}success{% elif message.tags == 'error' %}error{% endif %}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <form class="form-añadir-Jugador" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="card-img">
                 <h4 class ="nombre-equipo-añadir">{{equipo.Nombre}}</h4>
@@ -28,7 +37,5 @@
         </form>
     </main>
 
-
-
-
 {% endblock main %}
+

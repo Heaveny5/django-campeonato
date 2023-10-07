@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="{% static 'css/login/reclamo.css' %}">
     <link rel="stylesheet" href="{% static 'css/login/panel_resultado.css' %}">
     <link rel="stylesheet" href="{% static 'css/encuentros_equipos/add_jugador.css' %}">
-    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="{% static 'css/encuentros_equipos/settings.css' %}">
+
+    <title>Panel de Usuario</title>
 </head>
 
 <body>
@@ -77,7 +79,7 @@
             </a>
           </li>
           <li class="tooltip-element" data-tooltip="5">
-            <a href="#" data-active="5">
+            <a href="{% url 'settings' user.id %}" data-active="5">
               <div class="icon">
                 <i class='bx bx-cog'></i>
                 <i class='bx bxs-cog'></i>
@@ -99,6 +101,9 @@
     {% block main %}
     {% endblock main %}
     <script src="{%static 'js/sidenav.js'%}"></script>
+    <script src="{%static 'js/notificacion.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="{%static 'js/actualizar_img.js'%}"></script> 
   </body>
 
 </html>

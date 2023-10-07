@@ -1,0 +1,67 @@
+{% extends "panel_user.html" %}
+{% load static %}
+{% block logo_src %}{{equipo.logo.url}}{% endblock logo_src %}
+{% block main %}
+
+
+    <main>
+        {% if messages %}
+        <div class="cont-messages">
+            <ul class="messages">
+                {% for message in messages %}
+                <li class="{% if message.tags == 'success' %}success{% elif message.tags == 'error' %}error{% endif %}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <div class="contenedor-settings">
+            <div class="titulo-settings">
+                <h2>Editar Jugador <span class="span-settings">({{jugador.Nombre}})</span></h2>
+                
+            </div>
+            <div class="contenedor-set-datos">
+                    <form  method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="datos-usuarios">
+                            <div class="datos-usuario-form">
+                                <div class="form-group">
+                                    <label class="label" for="nombre_jugador_panel">Nombre:</label>
+                                    <input type="text" id="nombre_jugador_panel" name="nombre_jugador_panel" placeholder="{{ jugador.Nombre }}"> 
+                                </div>
+                                <div class="form-group">
+                                    <label for="apellido_jugador_panel" class="label">Apellidos</label>
+                                    <input type="text"  id="apellido_jugador_panel" name="apellido_jugador_panel" placeholder="{{ jugador.apellidos }}"> 
+                                </div>
+                                <div class="form-group">
+                                    <label for="fecha_jugador_panel" class="label">Fecha Nacimiento</label>
+                                    <input type="date"  id="fecha_jugador_panel" name="fecha_jugador_panel" placeholder="{{ usuario.username }}" autocomplete="off"> 
+                                </div>
+                                <div class="form-group-name">
+                                    <button type="submit" class="btn" name="accion" value="guardar_cambios">Guardar Cambios</button>
+                                    
+                                </div>
+                            </div>
+                            <div class="datos-equipo">
+                                <div class="form-group">
+                                    <label class="label" for="imagen_equipo_settings">Foto DNI Jugador:</label>
+                                    <label for="imagen_equipo_settings">
+                                        <div class="img-container">
+                                                <img aria-placeholder="editar" src="{{jugador.imagen_dni.url}}" class="imagen_equipo" alt="dni jugador">
+                                            <p>Editar</p>
+                                        </div>
+                                    </label>
+                                    <input type="file" id="imagen_equipo_settings" name="imagen_equipo_settings" accept="image/*">
+                                </div>                              
+                            </div>
+                        </div>
+                        <div class="button-settings">
+                            <button class="btn-eliminar" name="accion" value="eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este jugador?')">Elminar Jugador</button>
+                        </div>
+                        
+                    </form>
+            </div>
+        </div>
+
+    </main>
+
+{% endblock main %}

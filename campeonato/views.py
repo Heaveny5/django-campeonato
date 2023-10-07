@@ -3,6 +3,7 @@ import datetime
 from .models import * 
 from django.contrib.auth.models import User
 from equipos.models import *
+from encuentros_equipos.models import Encuentro,Resultado
 # Create your views here.
 
 
@@ -28,17 +29,64 @@ def all_campeonatos(request):
 
 
 
-def campeonato_id(request,campe_id):
+def campeonato_por_id(request,campe_id):
     campeonato=Campeonato.objects.get(id=campe_id)
     dirigentes=Dirigentes.objects.all().filter(campeonato_asociado=campe_id)
     equipos=Equipo.objects.all().filter(campeonato=campe_id)
     jugadores=Jugadores.objects.all().filter(equipo__campeonato__id=campe_id)
     campeon=Equipo.objects.get(id=2)
-
+    encuentros=Encuentro.objects.all().filter(campeonato_id=campeonato)
+    resultados=Resultado.objects.all()#.filter(encuentro_id=encuentros)
+    #grupos=
+    print(resultados)
     return render(request,'campeonato_id.html',{
         "campeonato":campeonato,
         "dirigentes":dirigentes,
         "equipos":equipos,
         "jugadores":jugadores,
-        "campeon":campeon
+        "campeon":campeon,
+        "encuentros":encuentros,
+        "resultados":resultados
         })
+
+
+
+
+
+#esto es para los vs de equipos 
+
+
+        # <div>
+        #     <div class="partido">
+        #         <div class="equipo">Equipo A1</div>
+        #         <div class="vs">vs</div>
+        #         <div class="equipo">Equipo B2</div>
+        #     </div>
+        
+        #     <div class="partido">
+        #         <div class="equipo">Equipo C1</div>
+        #         <div class="vs">vs</div>
+        #         <div class="equipo">Equipo D2</div>
+        #     </div>
+        
+        #     <div class="partido">
+        #         <div class="equipo">Equipo E1</div>
+        #         <div class="vs">vs</div>
+        #         <div class="equipo">Equipo F2</div>
+        #     </div>
+        # </div>
+#         .partido {
+#     display: flex;
+#     justify-content: center;
+#     align-items: center;
+#     margin-bottom: 20px;
+# }
+# .equipo {
+#     padding: 10px;
+#     border: 1px solid #ccc;
+#     margin: 0 10px;
+# }
+# .vs {
+#     font-size: 24px;
+#     margin: 0 20px;
+# }
