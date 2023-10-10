@@ -3,7 +3,7 @@ import datetime
 from .models import * 
 from django.contrib.auth.models import User
 from equipos.models import *
-from encuentros_equipos.models import Encuentro,Resultado
+from encuentros_equipos.models import Encuentro
 # Create your views here.
 
 
@@ -36,9 +36,16 @@ def campeonato_por_id(request,campe_id):
     jugadores=Jugadores.objects.all().filter(equipo__campeonato__id=campe_id)
     campeon=Equipo.objects.get(id=2)
     encuentros=Encuentro.objects.all().filter(campeonato_id=campeonato)
-    resultados=Resultado.objects.all()#.filter(encuentro_id=encuentros)
-    #grupos=
-    print(resultados)
+    grupos=Grupo.objects.all()
+    
+
+
+    for grupo in grupos:
+        for equipo in grupo.equipos.all():
+            if equipo.id==grupo.id:
+                print(f"grupo{grupo.nombre} - equipo{equipo.Nombre}")
+
+    #print(resultados)
     return render(request,'campeonato_id.html',{
         "campeonato":campeonato,
         "dirigentes":dirigentes,
@@ -46,7 +53,7 @@ def campeonato_por_id(request,campe_id):
         "jugadores":jugadores,
         "campeon":campeon,
         "encuentros":encuentros,
-        "resultados":resultados
+        "grupos":grupos
         })
 
 

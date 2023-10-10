@@ -76,27 +76,25 @@
             <h2>Resultados</h2>
         </div>
         <div class="bracket">
-            <div class="round">
-                <div class="match">
-                    <div class="team">Equipo A</div>
-                    <div class="score">2</div>
+            {% for grupo in grupos  %}
+                <div class="round">
+                    <div class="grupo-match"><h3>Grupo {{grupo.nombre}}</h3></div>
+                    {% comment %} {% if   %}
+
+                    {% else %}
+                    {% endif %} {% endcomment %}
+                    <div class="contenedor-match">
+                        <div class="match">
+                            <div class="team"><h5>Equipo A</h5></div>
+                            <div class="score"><h5>2</h5></div>
+                        </div>
+                        <div class="match">
+                            <div class="score"> <h5>0</h5></div>
+                            <div class="team"><h5>Equipo B</h5></div>  
+                        </div>
+                    </div>
                 </div>
-                <div class="match">
-                    <div class="team">Equipo B</div>
-                    <div class="score">0</div>
-                </div>
-            </div>
-            <div class="round">
-                <div class="match">
-                    <div class="team">Equipo C</div>
-                    <div class="score">1</div>
-                </div>
-                <div class="match">
-                    <div class="team">Equipo D</div>
-                    <div class="score">2</div>
-                </div>
-            </div>
-            <!-- Agrega más rondas y partidos según sea necesario -->
+            {% endfor %}
         </div>
     </section>
 

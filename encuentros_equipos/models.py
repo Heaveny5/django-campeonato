@@ -13,6 +13,10 @@ class Encuentro(Model):
     equipo_visitante=models.ForeignKey(Equipo,verbose_name="Visitante",on_delete=models.CASCADE,related_name="Visitante")
     campeonato=models.ForeignKey(Campeonato,on_delete=models.CASCADE,verbose_name="Campeonato")
     fase=models.CharField(max_length=15)
+    goles_local=models.IntegerField(verbose_name="goles_local",default=0)
+    goles_visitante=models.IntegerField(verbose_name="goles_visitante",default=0)
+    grupo=models.ForeignKey(Grupo,on_delete=models.CASCADE , blank=True , null=True)
+
     
     def __str__(self) -> str:
         return "Equipo 1: %s - Equipo 2: %s"%(self.equipo_local,self.equipo_visitante)
@@ -29,15 +33,6 @@ class Sanciones(Model):
         return "jugador: %s - Equipo: %s "%(self.jugador.Nombre,self.equipo.Nombre)
 
 
-class Resultado(Model):
-    ganador=models.ForeignKey(Equipo,null=True,blank=True,on_delete=models.CASCADE,verbose_name="Ganador",related_name="Ganador")
-    perdedor=models.ForeignKey(Equipo,null=True,blank=True,on_delete=models.CASCADE,verbose_name="Perdedor",related_name="Perdedor")
-    empate=models.BooleanField(default=False)
-    encuentro=models.ForeignKey(Encuentro,on_delete=models.CASCADE)
-    goles_ganador=models.IntegerField(default=0)
-    goles_perdedor=models.IntegerField(default=0)
-    def __str__(self):
-        return "Ganador: %s - Perdedor %s"%(self.ganador,self.perdedor)
     
 
 

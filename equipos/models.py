@@ -34,7 +34,10 @@ class Jugadores(Model):
 
 class Grupo(Model):
     nombre=models.CharField(max_length=1 , verbose_name="Grupo", default="-")
-    equipos=models.ManyToManyField(Equipo)
+    equipos=models.ManyToManyField(Equipo , related_name="grupo")
+
+
+    
 
 
     def __str__(self) -> str:
