@@ -37,13 +37,17 @@ def campeonato_por_id(request,campe_id):
     campeon=Equipo.objects.get(id=2)
     encuentros=Encuentro.objects.all().filter(campeonato_id=campeonato)
     grupos=Grupo.objects.all()
+    #error
+    
+
     
 
 
     for grupo in grupos:
-        for equipo in grupo.equipos.all():
-            if equipo.id==grupo.id:
-                print(f"grupo{grupo.nombre} - equipo{equipo.Nombre}")
+        for encuentro in encuentros:
+            if grupo.id:
+                print(encuentro.equipo_local ,encuentro.equipo_visitante)
+                print(encuentro.goles_local)
 
     #print(resultados)
     return render(request,'campeonato_id.html',{
